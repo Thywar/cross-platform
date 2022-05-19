@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class playercontroller : MonoBehaviour
 {
-    public Rigidbody2D rg;
-    public Animator anim;
-    public SpriteRenderer sr;
+    Rigidbody2D rg;
+    Animator anim;
+    SpriteRenderer sr;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        rg = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Amimator>();
+        sr = GetComponent<SpriteRenderer>();
+
+
     }
 
     // Update is called once per frame
