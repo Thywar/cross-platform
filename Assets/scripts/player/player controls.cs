@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class playercontrols : MonoBehaviour
 {
+    public Rigidbody2D rg;
+    public Animator anim;
+    public SpriteRenderer sr;
+
     // Start is called before the first frame update
     void Start()
     {
