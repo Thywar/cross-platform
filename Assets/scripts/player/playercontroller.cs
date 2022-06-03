@@ -9,7 +9,7 @@ public class playercontroller : MonoBehaviour
     Animator anim;
     SpriteRenderer sr;
     [SerializeField]
-    public float moveSpeed = 1.5f;
+    public float moveSpeed = 0.1f;
     public bool isGrounded;
     public Transform feetPos;
     public float checkRadius;

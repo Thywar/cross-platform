@@ -5,16 +5,18 @@ using UnityEngine;
 public class baddie : MonoBehaviour
 {
     [SerializeField]
-    float proectileForce;
-    [SerializeField]
-    float projectileFireRate;
+   public float projectileForce;
 
-    float timeSinceLastFire;
+    [SerializeField]
+   public float projectileFireRate;
+
+   public float timeSinceLastFire;
 
     public Transform spawnPointLeft;
     public Transform spawnPointRright;
 
-    public Projectile projectilePreFab;
+    [SerializeField]
+    public GameObject projectilePreFab;
 
 
     // Start is called before the first frame update
@@ -25,38 +27,31 @@ public class baddie : MonoBehaviour
 
         if (projectileForce <= 0)
             projectileForce = 7.0F;
-
-    }
-    public override void Death()
+     }
+    public void Death()
     {
-        base.Death();
-
         Destroy(gameObject);
     }
 
     // Update is called once per frame
     void Update()
     {
-         if (!anim.GetBool("Fire"))
+   /*      if (!anim.GetBool("Fire"))
          {
             if (Time.time >= timeSinceLastFire + projectileFireRate)
             { 
                 anim.SetBool("Fire", true);
             }
-         }
+         }*/
     }
         public void Fire()
         {
             timeSinceLastFire = Time.time;
 
-            projectileFireRate temp = Instant(projectilePreFab, spawnPointLeft.position, spawnPointLeft.rptation);
-
-            temp.speed = projectileForce;
+            GameObject temp = Instantiate(projectilePreFab, spawnPointLeft.position, spawnPointLeft.rotation);
+        
+           // temp.velocity = projectileForce;
         }
-        public void ReturnToIdle()
-        {
-            anim.SetBool("Fire", false);
-        }
-    
+       
 }
 
